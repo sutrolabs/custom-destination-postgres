@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Census Custom Destination: Postgres</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    </head>
+    <body>
+        <h1>Census Custom Destination: Postgres</h1>
+        <p>You should have the following integration endpoints available on this server.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Endpoint URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>postgres</td>
+                    <td>A basic integration that can write into PostgreSQL databases</td>
+                    <td>{{ site.environment.URL }}/.netlify/functions/index</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Installation & Testing Instructions</h2>
+        <p>These functions are currently deployed and waiting to be connected in Census</p>
+        <ol>
+            <li>Login to Census at <a href="//app.getcensus.com">app.getcensus.com</a></li>
+            <li>Click on the <strong>Connections</strong> tab</li>
+            <li>Click on <strong>Add Service</strong> and select <strong>Custom API</strong></li>
+            <li>Paste the appropriate endpoint URL of the custom API</li>
+        </ol>
+        <h2>Notes for PostgreSQL Connection</h2>
+        <p>The code for a custom connector doesn't embed any credentials for accessing your
+           destination database. There's a few ways to provide these credentials when building
+           your own connectors (see our docs). In this basic setup, you should add credentials
+           to the environment using Netlify's
+           <a href="https://app.netlify.com/sites/{{ site.environment.SITE_NAME }}/settings/deploys#environment">site settings</a>
+        </p>
+        <h2>How to Debug</h2>
+        <p>The folks at Netlify provide an easy way to access the log of how lambda functions execute. For example,
+           <a href="https://app.netlify.com/sites/{{ site.environment.SITE_NAME }}/functions/index">this page</a>
+           shows the log for the postgres endpoint.
+        </p>
+    </body>
+</html>
